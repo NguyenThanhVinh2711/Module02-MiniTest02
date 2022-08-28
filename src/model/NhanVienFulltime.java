@@ -1,16 +1,14 @@
-public class NhanVienFulltime extends NhanVien {
+package model;
+
+import java.io.Serializable;
+
+public class NhanVienFulltime extends NhanVien implements Serializable {
     public double bonusMoney;
     public double tienphat;
     public double luongcung;
 
-    public NhanVienFulltime(double bonusMoney, double tienphat, double luongcung) {
-        this.bonusMoney = bonusMoney;
-        this.tienphat = tienphat;
-        this.luongcung = luongcung;
-    }
-
-    public NhanVienFulltime(double employCode, String name, int age, int numberPhone, String email, double bonusMoney, double tienphat, double luongcung) {
-        super(employCode, name, age, numberPhone, email);
+    public NhanVienFulltime(double id, String name, int age, int numberPhone, String email, double bonusMoney, double tienphat, double luongcung) {
+        super(id, name, age, numberPhone, email);
         this.bonusMoney = bonusMoney;
         this.tienphat = tienphat;
         this.luongcung = luongcung;
@@ -42,5 +40,14 @@ public class NhanVienFulltime extends NhanVien {
 
     public double getluong() {
         return  luongcung + (bonusMoney - tienphat);
+    }
+
+    @Override
+    public String toString() {
+        return "NhanVienFulltime{" +
+                "bonusMoney=" + bonusMoney +
+                ", tienphat=" + tienphat +
+                ", luongcung=" + luongcung +
+                '}';
     }
 }

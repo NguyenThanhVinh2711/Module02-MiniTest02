@@ -1,15 +1,19 @@
-public abstract class NhanVien implements Comparable<NhanVien> {
-    private double employCode;
+package model;
+
+import java.io.Serializable;
+
+public abstract class NhanVien implements Comparable<NhanVien> , Serializable {
+    private double id;
     private String name;
     private int age;
     private int numberPhone;
     private String email;
 
-    public NhanVien() {
+    public NhanVien(String employCode, String name, int age, int numberPhone, String email) {
     }
 
     public NhanVien(double employCode, String name, int age, int numberPhone, String email) {
-        this.employCode = employCode;
+        this.id = employCode;
         this.name = name;
         this.age = age;
         this.numberPhone = numberPhone;
@@ -17,11 +21,11 @@ public abstract class NhanVien implements Comparable<NhanVien> {
     }
 
     public double getEmployCode() {
-        return employCode;
+        return id;
     }
 
     public void setEmployCode(double employCode) {
-        this.employCode = employCode;
+        this.id = employCode;
     }
 
     public String getName() {
@@ -40,7 +44,7 @@ public abstract class NhanVien implements Comparable<NhanVien> {
         this.age = age;
     }
 
-    public int getNumberPhone() {
+    public int getNumberPhone(int phoneNumber) {
         return numberPhone;
     }
 
@@ -48,8 +52,8 @@ public abstract class NhanVien implements Comparable<NhanVien> {
         this.numberPhone = numberPhone;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmail(String email) {
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -66,5 +70,16 @@ public abstract class NhanVien implements Comparable<NhanVien> {
             return -1;
         else return 0;
 
+    }
+
+    @Override
+    public String toString() {
+        return "NhanVien{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", numberPhone=" + numberPhone +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
